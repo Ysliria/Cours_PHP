@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <title>PHP - Introduction - Installation</title>
+</head>
+
+<body>
+<main class="container">
+    <h1 class="display-1">Installation</h1>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Windows</h2>
+
+        <p class="mt-3">
+            Pour ue installation sous Windows, il n'y a pas de grandes difficultés.
+            Plusieurs solutions sont disponibles mais les plus simple restent l'installation des environnements
+            complets.
+        </p>
+
+        <div class="mt-4">
+            <h3 class="text-muted">WAMP</h3>
+
+            <p>
+                L'installation de WAMP est simple mais demande quelques attentions particulières.
+            </p>
+
+            <ol>
+                <li>Aller sur le site de <a href="https://www.wampserver.com/">WAMP</a> et télécharger la version
+                    souhaitée
+                </li>
+                <li>
+                    Avant de lancer l'installation il faut installer les packages redistribuables VC++ de Microsoft ; on
+                    peut trouver le lien
+                    <a href="https://wampserver.aviatechno.net/#vcpackages">ici</a> ainsi que divers versions des
+                    constituants de WAMP pouvant être installé.
+                </li>
+                <li>Lancer l'installation de WAMP</li>
+                <li>Une fois l'installation terminée, il faut valider que WAMP démarre bien et que son logo est bien
+                    vert
+                </li>
+            </ol>
+        </div>
+
+        <div class="mt-4">
+            <h3 class="text-muted">Laragon</h3>
+
+            <p>
+                Pour Laragon il suffit de lancer l'exécutable téléchargé sur le <a href="https://laragon.org/download/index.html">site officiel</a>.
+            </p>
+        </div>
+
+        <div class="mt-4">
+            <h3 class="text-muted">Contrôler l'installation de PHP</h3>
+
+            <p>
+                Chacune des solutions intègrent l'installation de PHP, pour valider son installation il suffit de lancer
+                en ligne de commande <kbd>php -v</kbd>
+            </p>
+
+            <pre class="bg-dark text-white">
+                <code>
+    λ php -v
+    PHP 7.4.16 (cli) (built: Mar  2 2021 14:06:15) ( ZTS Visual C++ 2017 x64 )
+    Copyright (c) The PHP Group
+    Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Xdebug v3.0.4, Copyright (c) 2002-2021, by Derick Rethans
+                </code>
+            </pre>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">MAC</h2>
+
+        <p class="mt-3">
+            Tout pourrait sembler aussi simple sur MAC, mais Apple a eu la mauvaise idée d'intégrer une version de PHP dans son coeur qui n'est pas mise à jour par leur soin !
+        </p>
+
+        <p>
+            Dans un premier temps installer <a href="https://www.mamp.info/en/downloads/">MAMP</a>.
+        </p>
+
+        <p class="alert alert-danger" role="alert">
+            <strong>ATTENTION !</strong> Ne jamais installer MAMP sur Windows.
+        </p>
+
+        <p>
+            Une fois MAMP installé sur votre MAC, tenter de lancer la commande <kbd>php -v</kbd>.
+            <br>
+            Vous vous rendrez-compte que la version exécutée en ligne de commande et celle disponible dans MAMP ne sont pas les mêmes.
+            Ce n'est pas bien, cela nous posera des problèmes. Il faut modifier la version exécutée par le MAC pour être en 7.4 !
+        </p>
+
+        <ol>
+            <li>Installez <a href="https://brew.sh/">Homebrew</a> via la commande <kbd>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</kbd>.</li>
+            <li>Puis, grace à Homebrew, installez la version de 7.4 de PHP avec la commande <kbd>brew install php@7.4</kbd>.</li>
+            <li>Détacher la version actuelle de PHP du path du MAC avec la commande <kbd>brew unlink php@X.X</kbd> où les <em>X</em> correspondent à la version trouvée avec la commande <kbd>php -v</kbd></li>
+            <li>Ensuite liez la nouvelle version de PHP à votre console avec <kbd>brew link php@7.4</kbd></li>
+            <li>Redémarez la console et contrôlez la verion de PHP installée</li>
+        </ol>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">X-Debug</h2>
+
+        <p class="mt-3">
+            Afin de nous faciliter la vie lors de nos exercices et de nos débogues nous allon installer X-Debug.
+            <br>
+            Pour ce faire :
+        </p>
+
+        <ul>
+            <li>affichez la page <kbd>php_info()</kbd> en fonction de votre environnement. Cela peut être fait en ligne de commande avec un <kbd>php -i</kbd>.</li>
+            <li>Copiez l'intégralité de son contenu.</li>
+            <li>Collez-le sur le site <a href="https://xdebug.org/wizard">dédié</a>.</li>
+            <li>Vous pouvez maintenant suivre la procédure d'installation qui est dédiée à votre environnement.</li>
+        </ul>
+    </section>
+
+    <div class="row">
+        <a href="2_historique.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="../2_procedural/1_hello_world.html" class="btn btn-outline-primary col-auto">Suivant</a>
+    </div>
+</main>
+
+<script src="../../scripts/prism.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+</html>
