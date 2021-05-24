@@ -16,18 +16,103 @@
     <hr>
 
     <section class="mt-5">
-        <h2 class="text-muted">Windows</h2>
+        <h2 class="text-muted">Fonctionnement du serveur</h2>
 
         <p class="mt-3">
-            Pour ue installation sous Windows, il n'y a pas de grandes difficultés.
-            Plusieurs solutions sont disponibles mais les plus simple restent l'installation des environnements
-            complets.
+            Lors de l'envois de la requête par un utilisateur via son navigateur, voici ce qui se passe :
+        </p>
+
+        <ol>
+            <li>L'utilisateur saisi l'URL du site souhaité</li>
+            <li>Cette URL est envoyé a un serveur DNS qui va vérifié l'adresse IP du serveur gérant cette URL</li>
+            <li>Une fois l'adresse IP connue, la demande est envoyée au serveur correspondant</li>
+            <li>Le serveur Web intercepte la requête et regarde dans sa configuration où se situe le répertoire concerné et surtout le fichier d'index</li>
+            <li>Une fois trouvé, il envoi la requête au fichier <kbd>index.php</kbd> qui va traiter la requête</li>
+            <li>PHP construit la réponse en générant une page HTML</li>
+            <li>La reponse est retournée au navigateur</li>
+        </ol>
+
+        <div class="text-center">
+            <figure class="figure">
+                <img src="../../images/1_php_fonctionnement.png" class="img-fluid rounded" alt="workflow requete web">
+                <figcaption class="figure-caption text-right">Workflow simplifié d'une requête Web</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Les fichiers PHP</h2>
+
+        <p class="mt-3">
+            Les fichiers PHP sont des fichiers dont l'extension est <kbd>.php</kbd>.
+            A la lecture de cette extension le système sais qu'il devra faire appel à l'interpréteur PHP pour executer le contenu de ce fichier.
+        </p>
+
+        <p class="mt-3">
+            Comme on l'a vu précédemment, votre serveur Web va chercher un fichier index lorsque vous l'interrogerez.
+            <br>
+            Créez donc un fichier <kbd>index.php</kbd> dans un sous-répertoire de votre choix, dans votre répertoire dédié de votre serveur Web (htdocs pour MAC, et www pour Windows).
+        </p>
+
+        <p class="mt-3">
+            Une fois créé, saisissez n'importe quel texte à l'intérieur de ce fichier, et tentez de l'afficher cia votre navigateur.
+            <br>
+            Vous devriez voir votre navigateur afficher le texte saisi !
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Ma première page</h2>
+
+        <p class="mt-3">
+            Nous venons d'afficher un texte a partir d'un fichier PHP, mais ce n'est pas à proprement parler du PHP.
+            Pour écrire du PHP il faut, en plus d'un fichier avec une extension <kbd>.php</kbd>, ajouter des balises dans ce fichier pemetant de délimiter le code PHP du reste.
+        </p>
+
+        <p class="mt-3">
+            Si vous regardez la documentation officielle sur <a
+                href="https://www.php.net/manual/fr/language.basic-syntax.phptags.php">la syntaxe de base</a> de PHP, vous verrez qu'il existe 3 types de balises :
+        </p>
+
+        <ul>
+            <li>La traditionnelle <kbd>&lt;?php</kbd> pour ouvrir et pour fermer <kbd>?&gt;</kbd></li>
+            <li>La balise courte d'affichage <kbd>&lt;?=</kbd> pour ouvrir et pour fermer <kbd>?&gt;</kbd></li>
+            <li>Et une autre balise courte équivalente à la première, mais que l'on utilisera jamais <kbd>&lt;?</kbd> pour ouvrir et pour fermer <kbd>?&gt;</kbd></li>
+        </ul>
+
+        <p class="mt-3">
+            Utilisons donc la première dans notre fichier
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+Hello world!</code></pre>
+
+        <p class="mt-3">
+            Vous devriez avoir une erreur car ce n'est pas un code PHP valide : <br>
+            <strong class="ml-5">Parse error: syntax error, unexpected 'world' (T_STRING) in C:\laragon\www\php\index.php on line 2</strong>
+            <br>
+            Pour qu'il soit valide il faut lui demander d'afficher le texte que l'on souhaite retourner au navigateur. Voici deux méthodes équivalentes :
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+echo 'Hello world!';</code></pre>
+
+        <p class="mt-3">
+            Notez que l'instruction en PHP se termine par un point-virgule et que la chaîne de caractères est délimitée pas des simples quotes.
+            Elle peut aussi l'être par des doubles quotes, mais dans ce cas, PHP cherchera, à l'interieure de la chaîne, les éventuelles variables à interpréter.
+            <br>
+            Essayez de passer différentes chaines de caractères pour voir le comportement. Pour pouvoir agir correctement sur la chaine de caratères, sachez que le caractère d'échappement est <kbd>\</kbd>.
+            Profitez-en pour inspecter le code généré dans votre navigateur.
         </p>
     </section>
 
     <div class="row">
         <a href="../1_introduction/3_installation.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
-        <a href="" class="btn btn-outline-primary col-auto">Suivant</a>
+        <a href="2_variables.html" class="btn btn-outline-primary col-auto">Suivant</a>
     </div>
 </main>
 
