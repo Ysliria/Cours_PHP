@@ -3,9 +3,9 @@
 <html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../styles/prism.css">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" rel="stylesheet">
+    <link href="../../styles/prism.css" rel="stylesheet">
     <title>PHP - Procédural - Tableaux</title>
 </head>
 
@@ -16,26 +16,119 @@
     <hr>
 
     <section class="mt-5">
-        <h2 class="text-muted"></h2>
+        <h2 class="text-muted">Déclarations</h2>
 
         <p class="mt-3">
-
+            Il existe deux façons pour déclarer un tableau : avec la fonction <kbd>array(mixed ...$values)</kbd> ou via
+            la syntaxe courte avec des crochets <kbd>[]</kbd>.
+            <br>
+            Dans les 2 cas la <a href="https://www.php.net/manual/fr/function.array.php">documentation officielle</a>
+            précise comment le faire.
         </p>
 
-</section>
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$fruitsRouges = array(
+    'fraise',
+    'framboise',
+    'mûres'
+);
 
-<div class="row">
-    <a href="1_hello_world.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
-    <a href="" class="btn btn-outline-primary col-auto">Suivant</a>
-</div>
+$agrumes = [
+    'orange',
+    'citron',
+    'pamplemousse'
+];</code></pre>
+
+        <p class="mt-3">
+            Les tableaux peuvent être déclarés en listant les valeurs séparées par de virgules, mais on peut aussi leu
+            affecter des clefs. C'est d'ailleur ce que fait PHP implicitement, en ajoutant un clef numérique à chaque
+            valeur.
+            <br>
+            Si par exemple je demandai à PHP de m'afficher l'agrume qui a l'indice 0 il m'afficherait l'orange.
+        </p>
+
+        <p class="mt-3">
+            Mais je pourrai décider moi-même des clefs que je souhaite utiliser dans mon tableau.
+            <br>
+            Admettons de décide de faire un liste de personnes avec leur nom et leur prénom. Pour le traduire en PHP, je
+            dirai même un tableau de tableau. Voici ce que ça donnerai :
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$listePersonnes = [
+    [
+        'nom'    => 'D\'AGEN',
+        'prenom' => 'Bruno'
+    ],
+    [
+        'nom'    => 'RIZZO',
+        'prenom' => 'Cho'
+    ]
+];</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Affichage</h2>
+
+        <p class="mt-3">
+            Si vous tentez d'afficher votre tableau dans un echo vous devriez avoir un erreur : <br>
+            <strong class="ml-5">Notice: Array to string conversion</strong> <br>
+            Même si PHP est capable de caster une variable à la volée pour permettre son affichage, il n'est pas assez fort pour savoir comment afficher un tableau tout seul.
+            On doit donc lui indiquer ce que l'on souhaite afficher.
+        </p>
+
+        <p class="mt-3">
+            Si je reprends mon exemple avec les fruits, je devrai demander l'affichage comme suit :
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$agrumes = [
+    'orange',
+    'citron',
+    'pamplemousse'
+];
+echo $agrumes[0];
+// affiche orange</code></pre>
+
+        <p class="mt-3">
+            Ici je lui passe entre crochets l'indice que je souhaite afficher. <br>
+            Pour demander l'affichage du nom de la seconde personne, sur mon exemple avec la liste, je peux ainsi écrire :
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$listePersonnes = [
+    [
+        'nom'    => 'D\'AGEN',
+        'prenom' => 'Bruno'
+    ],
+    [
+        'nom'    => 'RIZZO',
+        'prenom' => 'Cho'
+    ]
+];
+echo $listePersonnes[1]['nom'];</code></pre>
+
+        <p class="mt-3">
+            Petit bonus : que se passe-t-il si je passe un indice entre crochet a une varialbe qui ne contient qu'une chaîne de caractère ?
+            <br>
+            Nous verrons ultérieurement des fonctions pour travailler avec les tableaux et les chaîne de caractères.
+        </p>
+    </section>
+
+    <div class="row">
+        <a class="btn btn-outline-secondary col-auto mr-auto" href="2_variables.html">Précédent</a>
+        <a class="btn btn-outline-primary col-auto" href="4_conditions.html">Suivant</a>
+    </div>
 </main>
 
 <script src="../../scripts/prism.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+<script crossorigin="anonymous"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous"></script>
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
