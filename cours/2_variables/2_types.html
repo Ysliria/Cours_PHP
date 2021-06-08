@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <title>PHP - Les variables - Les types</title>
+</head>
+
+<body>
+    <main class="container">
+        <h1 class="display-1">Les types</h1>
+
+        <hr>
+
+        <section class="mt-5">
+            <h2 class="text-muted">Le typage dans PHP</h2>
+
+            <p class="mt-3">
+                PHP supporte 10 types basiques.
+            </p>
+
+            <ul>
+                <li><strong>4 types scalaires</strong> : bool, int, float, string.</li>
+                <li><strong>4 types composés</strong> : array, object, callable, iterable.</li>
+                <li><strong>2 types spéciaux</strong> : resource, NULL.</li>
+            </ul>
+
+            <p class="mt-3">
+                Le type d'une variable n'est pas obligatoire ; dans ce cas iol sera défini par PHP au moment de l'exécution, suivant le contexte dans lequel la variable est utilisée.
+                <br>
+                Pour connaitre le type d'un variable on peut faire un <kbd>var_dump</kbd> de cette variable et constaté le type affiché. On peut aussi utiliser la fonction <kbd>gettype();</kbd>
+            </p>
+
+            <pre class="line-numbers"><code class="language-php">&lt;?php
+$maVariable = 'Ma variable';
+var_dump($maVariable);
+?&gt;</code></pre>
+
+            <div class="text-center">
+                <figure class="figure">
+                    <img src="../../images/2_php_dump_type.PNG" class="img-fluid rounded" alt="workflow requete web">
+                    <figcaption class="figure-caption text-right">Affichage du type d'une variable via un var_dump</figcaption>
+                </figure>
+            </div>
+
+            <p class="mt-3">
+                Pour caster une variable, c'est à dire forcer son type, on peut utiliser la méthode <kbd>settype();</kbd> ; ou faire précéder la variable du type souhaité entre parenthèses.
+            </p>
+
+            <pre class="line-numbers"><code class="language-php">&lt;?php
+$maVariable = 2;
+(string) $maVariable;
+?&gt;</code></pre>
+        </section>
+
+        <hr>
+
+        <section class="mt-5">
+            <h2 class="text-muted">Le booléen</h2>
+
+            <p class="mt-3">
+                Le type le plus simple qui définit un vérité à travers 2 états : vrai ou faux.
+                <br>
+                Ces états sont remplis par les constantes <strong>TRUE</strong> ou <strong>FALSE</strong>. Elles sont insensibles à la casse, mais de part le fait qu'elles soient des constantes, il est préférables de les écrire en majuscule.
+            </p>
+
+            <p class="mt-3">
+                Le booléen a la particularité de n'avoir pas besoin de transtypage (cast). PHP effectue la conversion automatiquement en respectant le fait que les éléments suivants retournes faux :
+            </p>
+
+            <ul>
+                <li>L'integer 0</li>
+                <li>Le float 0.0 et -0.0</li>
+                <li>La string vide ou contenant 0</li>
+                <li>Un tableau sans élément</li>
+                <li>Le type NULL</li>
+                <li>les objets SimpleXML créés depuis des éléments vide sans attributs</li>
+            </ul>
+
+            <p class="mt-3">
+                Toutes les autres valeurs sont vrai !
+            </p>
+        </section>
+
+        <hr>
+        
+        <section class="mt-5">
+            <h2 class="text-muted">Les entiers</h2>
+
+            <p class="mt-3">
+                Un entier est un nombre appartenant à l'ensemble ℤ = {..., -2, -1, 0, 1, 2, ...}.
+                Les entiers peuvent être spécifiés en notation décimale (base 10), hexadécimale (base 16), octale (base 8), ou binaire (base 2). L'opérateur de négation peut être utilisé pour désigner un entier négatif.
+            </p>
+
+            <pre class="line-numbers"><code class="language-php">&lt;?php
+$a = 1234; // un nombre décimal
+$a = 0123; // un nombre octal (équivalent à 83 en décimal)
+$a = 0x1A; // un nombre hexadecimal (équivalent à 26 en décimal)
+$a = 0b11111111; // un nombre binaire (équivalent à 255 en decimal)
+?&gt;</code></pre>
+        </section>
+
+        <hr>
+        
+        <section class="mt-5">
+            <h2 class="text-muted">Les nombres à virgules flotantes</h2>
+        
+            <p class="mt-3">
+                De type <strong>float</strong>, on peut aussi les trouver avec le type <strong>double</strong>.
+            </p>
+
+            <p class="mt-3">
+                On peut effectuer des operations entre les floats et les integers ; à ce moment là le type résultant sera un float.
+                <br>
+                Le séparateur de décimal est un <strong>point</strong> !
+            </p>
+        </section>
+
+        <hr>
+
+        <section class="mt-5">
+            <h2 class="text-muted">Les chaînes de caractères</h2>
+
+            <p class="mt-3">
+                On peut spécifier une string de 4 façons différentes :
+            </p>
+
+            <ol>
+                <li><strong>Avec des guillemets simples</strong> : les variables ne pouvant être interprétées entre des guillements simple, elle devront être concaténées avec le point <kbd>.</kbd></li>
+                <li><strong>Avec des guillemets doubles</strong> : PHP cherchera les variables et les caractère d'échappements à interpréter avant de retourner la string à afficher</li>
+                <li><strong>Avec la syntaxe HEREDOC</strong> : interprétera le code entre les délimiteurs qui auront été choisis</li>
+                <li><strong>Avec la syntaxe HEREDOC</strong> : n'interprétera pas le code entre les délimiteurs qui auront été choisis</li>
+            </ol>
+
+            <p class="mt-3">
+                Certains comportements sont à préciser avec les chaines de caractères. Si on concatène une chaine avec un autre type, il deviendra une chaine de caractère.
+                Si on additionne une string avec un integer, PHP tentera de résoudre le typage pour effectuer l'opération arithmétique.
+            </p>
+        </section>
+
+        <hr>
+
+        <section class="mt-5">
+            <h2 class="text-muted">Les tableaux</h2>
+
+            <p class="mt-3">
+                Il existe 2 façons de créer des tableaux, la syntaxe <kbd>array();</kbd> et sa syntaxe courte. Nous utiliserons principalement la syntaxe courte, mais il est bon de connaître les 2.
+                <br>
+                Lors de la déclaration d'un tableau, on stipule, le cas échéant, ses valeurs en les séparants par des virgules.
+                <br>
+                La syntaxe courte remplace <kbd>array();</kbd> par <kbd>[];</kbd> :
+            </p>
+
+            <pre class="line-numbers"><code class="language-php">&lt;?php
+$monTableau = array(
+    'une ligne',
+    'une seconde ligne'
+);
+
+$monTableau = [
+    'une ligne',
+    'une seconde ligne'
+];
+?&gt;</code></pre>
+
+            <p class="mt-3">
+                Bien qu'une clef (auto-incrémentée) soit définie par défaut pour chaque valeur entrée dans un tableau, on peut nous même choisir les clefs que l'on associe à ces valeurs ; à condition qu'elles soient de type integer ou string.
+                <br>
+                Il faut cependant rester conscient du comportement des clefs lorsqu'elles sont définie par le développeurs.
+            </p>
+
+            <ul>
+                <li>Les chaînes de caractères contenant un entier valide, sauf si le nombre est précédé d'un signe + seront modifiées en un type entier.</li>
+                <li>Les nombres à virgule flottante seront aussi modifiés en entier, ce qui signifie que la partie après la virgule sera tronquée.</li>
+                <li>Les booléens seront modifiés en entier également;</li>
+                <li>La valeur Null sera modifiée en une chaîne vide.</li>
+                <li>Les tableaux et les objets ne peuvent pas être utilisés comme clé.</li>
+            </ul>
+
+            <p>
+                Ce qui implique, dans le cas suivant, que toutes les clefs sont les mêmes et que, par conséquent, on écrase la valeur précédente à chaque ligne.
+            </p>
+
+            <pre class="line-numbers"><code class="language-php">&lt;?php
+$monTableau = [
+    1    => 'a',
+    '1'  => 'b',
+    1.5  => 'c',
+    true => 'd'
+];
+?&gt;</code></pre>
+
+            <p class="mt-3">
+                De plus, si on décidait de choisir un integer comme clef, l'auto-incrément s'adapterait et continuerait après la dernière clefs trouvée.
+            </p>
+
+            <pre class="line-numbers"><code class="language-php">&lt;?php
+$monTableau = [
+    'a', // la clef a pour valeur 1
+    'b', // la clef a pour valeur 2
+    5 => 'c',  // la clef a pour valeur 5
+    'd' // la clef a pour valeur 6
+];
+?&gt;</code></pre>
+
+            <p class="mt3">
+                Enfin, pour accéder au valeur d'un tableau on utilise la syntaxe avec les crochets, à l'intérieur desquels on choisit la clef de la valeur que l'on souhaite récupérer.
+            </p>
+
+            <pre class="line-numbers"><code class="language-php">&lt;?php
+$monTableau = [
+    'a',
+    'b',
+    'c',
+    'd'
+];
+
+echo $monTableau[3]; // Affichera c.
+?&gt;</code></pre>
+        </section>
+
+        <div class="row mt-5 mb-5">
+            <a href="1_declaration.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+            <a href="3_predefinies.html" class="btn btn-outline-primary col-auto">Suivant</a>
+        </div>
+    </main>
+
+    <script src="../../scripts/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+</body>
+</html>
