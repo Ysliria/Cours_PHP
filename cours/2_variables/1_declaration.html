@@ -29,8 +29,7 @@
         <pre class="line-numbers"><code class="language-php">&lt;?php
 $une_variable;
 $uneAutreVariable;
-$_variable;
-?&gt;</code></pre>
+$_variable;</code></pre>
     </section>
 
     <hr>
@@ -43,7 +42,7 @@ $_variable;
             <br>
             Les <a href="https://www.php-fig.org/psr/psr-1/">PSR-1</a> et <a href="https://www.php-fig.org/psr/psr-12/">PSR-12</a>, définissent respectivement les normes de codage de base et le style de codage étendu.
             <br>
-            Si ces recommandations déterminent que les variablent peuvent être définies en <strong>camelCase</strong>, <strong>UpperCamelCase</strong> et <strong>snake_case</strong> ; nous allons prendre le parti dès à présent de les écrire en camelCase.
+            Si ces recommandations déterminent que les variables peuvent être définies en <strong>camelCase</strong>, <strong>UpperCamelCase</strong> et <strong>snake_case</strong> ; nous allons prendre le parti dès à présent de les écrire en camelCase.
         </p>
     </section>
 
@@ -60,8 +59,27 @@ $_variable;
         <pre class="line-numbers"><code class="language-php">&lt;?php
 $variableUne = 'Variable une';
 $variable2 = 2;
-$troisiemeVariable = '3';
-?&gt;</code></pre>
+$troisiemeVariable = '3';</code></pre>
+    </section>
+
+    <hr>
+    <section class="mt-5">
+        <h2 class="text-muted">La portée des variables</h2>
+
+        <p class="mt-3">
+            Les variables ont une portée lié au script dans lequel elles sont définies. Néanmoins, si elles sont définies dans une fonction, elles auront une portée locale à la fonction.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$maVariable = 'ma variable';
+
+function maFunction()
+{
+    $maVariable = 'une autre variable';
+    echo $maVariable; // Affiche : une autre variable.
+}
+
+echo $maVariable; // Affiche : une variable.4</code></pre>
     </section>
 
     <div class="row mt-5 mb-5">

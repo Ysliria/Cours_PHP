@@ -16,11 +16,52 @@
     <hr>
 
     <section class="mt-5">
-        <h2 class="text-muted"></h2>
+        <h2 class="text-muted">Les superglobales</h2>
 
         <p class="mt-3">
-            
+            PHP fournit un très grand nombre de variables prédéfinies accessibles à tous vos scripts. Ces variables représentent à peu près tout, allant des variables externes aux variables d'environnement intégrées à PHP, en passant par les derniers messages d'erreur ou les en-têtes récupérés.
+            Plusieurs variables prédéfinies en PHP sont "superglobales", ce qui signifie qu'elles sont disponibles quel que soit le contexte du script.
         </p>
+
+        <ul>
+            <li><strong>$GLOBALS</strong> : un tableau associatif contenant les références sur toutes les variables globales actuellement définies dans le contexte d'exécution global du script. Les noms des variables sont les index du tableau.</li>
+            <li><strong>$_SERVER</strong> : un tableau contenant des informations comme les en-têtes, dossiers et chemins du script. Les entrées de ce tableau sont créées par le serveur web. Il n'y a aucune garantie que tous les serveurs les rempliront tous ; certains en oublieront quelques-unes et en rajouteront de nouvelles non mentionnées ici. Cependant, un grand nombre de ces variables fait partie des » spécifications CGI/1.1, et vous pouvez donc vous attendre à les retrouver.</li>
+            <li><strong>$_GET</strong> : un tableau associatif des valeurs passées au script courant via les paramètres d'URL (aussi connue sous le nom de "query string"). Notez que ce tableau n'est pas seulement rempli pour les requêtes GET, mais plutôt pour toutes les requêtes avec un query string.</li>
+            <li><strong>$_POST</strong> : un tableau associatif des valeurs passées au script courant via le protocole HTTP et la méthode POST.</li>
+            <li><strong>$_FILES</strong> : un tableau associatif des valeurs téléchargées au script courant via le protocole HTTP et la méthode POST.</li>
+            <li><strong>$_COOKIE</strong> : un tableau associatif de variables, passé au script courant, via des cookies HTTP.</li>
+            <li><strong>$_SESSION</strong> : un tableau associatif des valeurs stockées dans les sessions, et accessible au script courant. Voyez l'extension Sessions pour plus de détails sur comment est utilisée cette variable.</li>
+            <li><strong>$_REQUEST</strong> : un tableau associatif qui contient par défaut le contenu des variables $_GET, $_POST et $_COOKIE.</li>
+            <li><strong>$_ENV</strong> : Un tableau associatif de variable passé au script courant, via la méthode d'environnement. Cette variable est importée dans l'espace de nom global de PHP, depuis l'environnement dans lequel l'exécutable PHP fonctionne.</li>
+        </ul>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+var_dump($_SERVER);
+?&gt;</code></pre>
+        
+        <div class="text-center">
+            <figure class="figure">
+                <img src="../../images/3_php_superglobale_server.PNG" class="img-fluid rounded" alt="dump supergloblae server">
+                <figcaption class="figure-caption text-right">Dump de la superglobale $_SERVER</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Les autres variables prédéfinies</h2>
+
+        <p class="mt-3">
+            D'autres variables prédéfinies existent :
+        </p>
+
+        <ul>
+            <li><strong>$php_errormsg</strong> : Le dernier message d'erreur.</li>
+            <li><strong>$http_response_header</strong> : En-têtes de réponse HTTP.</li>
+            <li><strong>$argc</strong> : Le nombre d'arguments passés au script.</li>
+            <li><strong>$argv</strong> : Tableau d'arguments passés au script.</li>
+        </ul>
     </section>
 
     <div class="row mt-5 mb-5">

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="../../styles/prism.css">
-    <title>PHP - Variable - Les constantes</title>
+    <title>PHP - Variables - Les constantes</title>
 </head>
 
 <body>
@@ -16,16 +16,56 @@
     <hr>
 
     <section class="mt-5">
-        <h2 class="text-muted"></h2>
+        <h2 class="text-muted">Déclaration</h2>
 
         <p class="mt-3">
+            Une constante est un identifiant (un nom) qui représente une valeur simple. Comme son nom le suggère, cette valeur ne peut jamais être modifiée durant l'exécution du script (sauf les constantes magiques).
+            Les constantes sont sensibles à la casse. Par convention, les constantes sont toujours en majuscule.
+            <br>
+            Les noms de constantes suivent les mêmes règles que n'importe quel nom en PHP. Un nom de constante valide commence par une lettre ou un souligné, suivi d'un nombre quelconque de lettres, chiffres ou soulignés.
+        </p>
 
+        <p class="mt-3">
+            On peut déclarer une constante avec la fonction <kbd>define();</kbd> ou avec le mot clef <kbd>const</kbd>.
+            Mais lors de l'utilisation du mot-clé <kbd>const</kbd>, seuls les expressions de type scalaires (bool, int, float et string) et des arrays constants contenant seulement des expressions scalaires sont acceptées.
+        </p>
+
+                    <pre class="line-numbers"><code class="language-php">&lt;?php
+const MA_CONSTANTE = 'Ma constante';
+define('MA_CONSTANTE', 'Ma constante');</code></pre>
+
+        <p class="mt-3">
+            Comme pour les variables, il existes des constantes prédéfinies. On en a déjà utilisées : NULL, TRUE et FALSE. Mais vous en trouverez dautres dans la documentation de PHP.
         </p>
     </section>
 
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Les constantes magiques</h2>
+
+        <p class="mt-3">
+            Il y a neuf constantes magiques qui changent suivant l'emplacement où elles sont utilisées.
+            Toutes ces constantes "magiques" sont évaluées au moment de la compilation, contrairement aux constantes classiques, qui sont évaluées au moment de l'exécution.
+            Ces constantes spéciales sont insensibles à la casse.
+        </p>
+
+        <ul>
+            <li><strong>__LINE__</strong> : la ligne courante dans le fichier.</li>
+            <li><strong>__FILE__</strong> : le chemin complet et le nom du fichier courant avec les liens symboliques résolus. Si utilisé pour une inclusion, le nom du fichier inclus est retourné.</li>
+            <li><strong>__DIR__</strong> : le dossier du fichier. Si utilisé dans une inclusion, le dossier du fichier inclus sera retourné. C'est l'équivalent de dirname(__FILE__). Ce nom de dossier ne contiendra pas de slash final, sauf si c'est le dossier racine.</li>
+            <li><strong>__FUNCTION__</strong> : le nom de la fonction, ou {closure} pour les fonctions anonymes.</li>
+            <li><strong>__CLASS__</strong> : le nom de la classe courante. Le nom de la classe contient l'espace de nom dans lequel cette classe a été déclarée (i.e. Foo\Bar). Lorsqu'elle est utilisée dans une méthode de trait, __CLASS__ est le nom de la classe dans laquelle le trait est utilisé.</li>
+            <li><strong>__TRAIT__</strong> : le nom du trait. Le nom du trait inclut l'espace de nom dans lequel il a été déclaré (e.g. Foo\Bar).</li>
+            <li><strong>__METHOD__</strong> : le nom de la méthode courante.</li>
+            <li><strong>__NAMESPACE__</strong> : le nom de l'espace de noms courant.</li>
+            <li><strong>ClassName::class</strong> : le nom entièrement qualifié de la classe.</li>
+        </ul>
+    </section>
+
     <div class="row mt-5 mb-5">
-        <a href="../1_introduction/5_syntaxe.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
-        <a href="2_types.html" class="btn btn-outline-primary col-auto">Suivant</a>
+        <a href="3_predefinies.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="5_exercice.html" class="btn btn-outline-primary col-auto">Suivant</a>
     </div>
 </main>
 
