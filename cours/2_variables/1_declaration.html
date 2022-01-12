@@ -52,8 +52,8 @@ $_variable;</code></pre>
         <h2 class="text-muted">Affectation</h2>
 
         <p class="mt-3">
-            L'afectation d'une valeur à une variable se fait avec le signe <kbd>=</kbd>. <br>
-            Si on décide de faire plusieurs affection à un même variable, la dernière affectation sera la valeur réelle de la variable. En effet chaque affectation écrase la valeur dela précédente affectation.
+            L'affectation d'une valeur à une variable se fait avec le signe <kbd>=</kbd>. <br>
+            Si on décide de faire plusieurs affections à un même variable, la dernière affectation sera la valeur réelle de la variable. En effet chaque affectation écrase la valeur dela précédente affectation.
         </p>
 
         <pre class="line-numbers"><code class="language-php">&lt;?php
@@ -67,7 +67,7 @@ $troisiemeVariable = '3';</code></pre>
         <h2 class="text-muted">La portée des variables</h2>
 
         <p class="mt-3">
-            Les variables ont une portée lié au script dans lequel elles sont définies. Néanmoins, si elles sont définies dans une fonction, elles auront une portée locale à la fonction.
+            Les variables ont une portée liée au script dans lequel elles sont définies. Néanmoins, si elles sont définies dans une fonction, elles auront une portée locale à la fonction.
         </p>
 
         <pre class="line-numbers"><code class="language-php">&lt;?php
@@ -79,11 +79,50 @@ function maFunction()
     echo $maVariable; // Affiche : une autre variable.
 }
 
-echo $maVariable; // Affiche : une variable.4</code></pre>
+echo $maVariable; // Affiche : une variable.</code></pre>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Affichage et débogue d'une variable</h2>
+
+        <p class="mt-3">
+            Pour afficher une variable l'une des méthodes la plus commune est d'utiliser le <kbd>echo</kbd>. Si on se réfère à la
+            <a href="https://www.php.net/manual/fr/function.echo.php">documentation</a> on y trouvera la syntaxe. Notez que <kbd>echo</kbd> affiche une chaine de caractères.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$maVariable = 'Ceci est ma variable';
+echo $maVariable; // Affiche : Ceci est ma variable
+
+$monTableau = [
+    'une valeur',
+    'une autre valeur'
+];
+echo $monTableau; // Affiche une erreur
+        </code></pre>
+
+        <p class="mt-3">
+            Un autre élément important va nous aider à déboguer notre code. C'est le <kbd>var_dump();</kbd>. En effet, si j'ai besoin d'afficher autre chose qu'une chaine de caractères, <kbd>echo</kbd> ne sera plus suffisant (cf. exemple ci-dessus).
+            Qui plus est, si je fais succéder un <kbd>die;</kbd> à mon <kbd>var_dump();</kbd>, j'ai la certitude que PHP interrompera l'execution de mon code.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monTableau = [
+    'une valeur',
+    'une autre valeur'
+];
+var_dump($monTableau); // Affiche mon tableau
+die;
+
+$maVariable = 'Ceci est ma variable';
+echo $maVariable; // Rien ne s'affiche car le script est interrompu à la ligne 7
+        </code></pre>
     </section>
 
     <div class="row mt-5 mb-5">
-        <a href="../1_introduction/5_syntaxe.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="../1_introduction/3_syntaxe.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
         <a href="2_types.html" class="btn btn-outline-primary col-auto">Suivant</a>
     </div>
 </main>

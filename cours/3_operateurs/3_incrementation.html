@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <title>PHP - Opérateurs - Incrémentation er décrémentation</title>
+</head>
+
+<body>
+<main class="container">
+    <h1 class="display-1">Incrémentation et décrémentation</h1>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Opérateur d'incrémentation</h2>
+
+        <p class="mt-3">
+            Pout incrémenter une variable il existe deux opérateurs que l'on sélectionnera en fonction du contexte.
+            L'opérateur de pré-incrémentation et l'opérateur de post-incrémentation.
+        </p>
+
+        <p class="mt-3">
+            L'opérateur de pré-incrémentation permettra d'incrémenter la variable <strong>avant</strong> qu'elle ne soit retournée.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monChiffre = 5;
+
+echo ++$monChiffre; // Affiche 6
+echo '&lt;br&gt;';
+echo $monChiffre; // Affiche 6
+        </code></pre>
+
+        <p class="mt-3">
+            L'opérateur de post-incrémentation permettra d'incrémenter la variable <strong>après</strong> qu'elle eut été retournée.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monChiffre = 5;
+
+echo $monChiffre++; // Affiche 5
+echo '&lt;br&gt;';
+echo $monChiffre; // Affiche 6
+        </code></pre>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Opérateur de décrémentation</h2>
+
+        <p class="mt-3">
+            L'opérateur de décrémentation possède les mêmes attributs pré et post.
+            Ainsi on obtiendra en pré-décrémentation:
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monChiffre = 5;
+
+echo --$monChiffre; // Affiche 4
+echo '&lt;br&gt;';
+echo $monChiffre; // Affiche 4
+        </code></pre>
+
+        <p class="mt-3">
+            Et en post-décrémentation :
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monChiffre = 5;
+
+echo $monChiffre--; // Affiche 5
+echo '&lt;br&gt;';
+echo $monChiffre; // Affiche 4
+        </code></pre>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Et sur les lettres ?</h2>
+
+        <p class="mt-3">
+            On peut incrémenter des caratères, mais seuls les caractères ASCII et les chiffres (a-z, A-Z et 0-9).
+            On ne peut cependant pas les décrémenter.
+        </p>
+    </section>
+
+    <div class="row mt-5 mb-5">
+        <a href="2_comparaison_logiques.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="../4_structures_controle/1_structures_conditionelles.html" class="btn btn-outline-primary col-auto">Suivant</a>
+    </div>
+</main>
+
+<script src="../../scripts/prism.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+</html>

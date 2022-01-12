@@ -19,7 +19,7 @@
         <h2 class="text-muted">Fonctionnement du serveur</h2>
 
         <p class="mt-3">
-            Lors de l'envois de la requête par un utilisateur via son navigateur, voici ce qui se passe :
+            Lors de l'envoi de la requête par un utilisateur via son navigateur, voici ce qui se passe :
         </p>
 
         <ol>
@@ -41,13 +41,51 @@
     </section>
 
     <hr>
+    
+    <section class="mt-5">
+        <h2 class="text-muted">Notre serveur</h2>
+    
+        <p class="mt-3">
+            Nous avons donc besoin d'un serveur ! Pour se faire nous disposons d'outils pré-configurés.
+        </p>
+
+        <ul>
+            <li><strong><a href="https://www.mamp.info/en/mamp/">MAMP</a></strong> : sera le seveur que vous utiliserez si vous possédez un MAC.</li>
+            <li><strong><a href="https://www.wampserver.com/">WAMP</a></strong> : pour les utilisateurs de Windows.</li>
+            <li><strong><a href="https://laragon.org/">Laragon</a></strong> : est une alternative à WAMP pour les utilisateurs de Windows et son installation est un peu plus sommaire.</li>
+        </ul>
+
+        <p class="mt-3">
+            Vous n'êtes pas obligé de démarrer un outil ci-dessus présenté pour démarrer un serveur WEB.
+            PHP a le sien en interne qui se démarre en ligne de commande quand il est installé sur votre poste.
+        </p>
+
+        <p class="mt-3">
+            Pour se faire on lance la commande <kbd>php -S localhost:8000</kbd>.
+        </p>
+
+        <ul>
+            <li><kbd>php</kbd> pour invoquer PHP</li>
+            <li><kbd>-S</kbd> le commutateur qui spécifie qu'on appelle le serveur</li>
+            <li><kbd>localhost</kbd> l'adresse qu'on souhaite lui donner pour se connecter (équivaut à 127.0.0.1)</li>
+            <li><kbd>:8000</kbd> le port que l'on souhaite utiliser parmis ceux disponible</li>
+        </ul>
+
+
+
+        <p class="alert alert-danger">
+            <strong>ATTENTION</strong> : une version de PHP est pré-installée sur le MAC qui n'est pas forcément celle que vous souhaitez utiliser. Assurez-vous en avant de vous lancer !
+        </p>
+    </section>
+
+    <hr>
 
     <section class="mt-5">
         <h2 class="text-muted">Les fichiers PHP</h2>
 
         <p class="mt-3">
             Les fichiers PHP sont des fichiers dont l'extension est <kbd>.php</kbd>.
-            A la lecture de cette extension le système sais qu'il devra faire appel à l'interpréteur PHP pour executer le contenu de ce fichier.
+            A la lecture de cette extension le système sait qu'il devra faire appel à l'interpréteur PHP pour executer le contenu de ce fichier.
         </p>
 
         <p class="mt-3">
@@ -57,15 +95,15 @@
         </p>
 
         <p class="mt-3">
-            Une fois créé, saisissez n'importe quel texte à l'intérieur de ce fichier, et tentez de l'afficher cia votre navigateur.
+            Une fois créé, saisissez n'importe quel texte à l'intérieur de ce fichier et tentez de l'afficher via votre navigateur.
             <br>
             Vous devriez voir votre navigateur afficher le texte saisi !
         </p>
     </section>
 
     <div class="row mt-5 mb-5">
-        <a href="3_installation.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
-        <a href="5_syntaxe.html" class="btn btn-outline-primary col-auto">Suivant</a>
+        <a href="1_presentation.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="3_syntaxe.html" class="btn btn-outline-primary col-auto">Suivant</a>
     </div>
 </main>
 

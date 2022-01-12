@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <title>PHP - Structures de contrôle - Structures conditionelles</title>
+</head>
+
+<body>
+<main class="container">
+    <h1 class="display-1">Les structures conditionnelles</h1>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">La structure if/else</h2>
+
+        <p class="mt-3">
+            Il existe plusieurs types de structures conditionelles dont la plus connue est le <kbd>if</kbd>. Elle est aussi la plus importante tout langage confondu. En effet, elle permet de conditionner l'exécution d'un code.
+        </p>
+
+        <p class="mt-3">
+            Pour se faire, on passera simplement au <kbd>if</kbd> la condition qu'il devra contrôler et, dans un bloc entourer d'accolades, le code à exécuter si la condition est validée.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monAge = 43;
+
+if ($monAge >= 18) {
+    echo 'Je suis un adulte';
+}
+        </code></pre>
+
+        <p class="mt-3">
+            Ici on constate bien que j'exécuterai le code si est seulement si mon âge est supérieur à 18. Maintenant je souhaite exécuter un autre code dans le cas contraire. Si je le mets sous la structure du <kbd>if</kbd>, il sera exécuté dans tous les cas.
+            Il existe un autre terme pour résoudre mon problème, le <kbd>else</kbd>.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monAge = 43;
+
+if ($monAge >= 18) {
+    echo 'Je suis un adulte';
+} else {
+    echo 'Je suis un enfant';
+}
+        </code></pre>
+
+        <p class="mt-3">
+            Je peux aussi utiliser le <kbd>elseif</kbd> si je souhaite exécuter différents codes en fonction de mes conditions et même cumuler les conditions.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$monAge = 43;
+
+if ($monAge >= 18) {
+    echo 'Je suis un adulte';
+} elseif (($monAge >= 1) && ($monAge < 18)) {
+    echo 'Je suis un enfant';
+} else {
+    echo 'Je suis un nouveau né !';
+}
+        </code></pre>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Le switch</h2>
+
+        <p class="mt-3">
+            A l'image de la structure <kbd>if</kbd>, le <kbd>switch</kbd> va permettre d'éxecuter du code sous certaines conditions ; à la différence que le <kbd>switch</kbd> simplifiera la comparaison d'une variable avec un grand nombre de valeurs.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+if ($genre == 'Homme') {
+    echo 'C\'est un homme';
+} elseif ($genre == 'Femme') {
+    echo 'C\'est une femme';
+} else {
+    echo 'C\'est un agenre';
+}
+
+// Equivaut à :
+
+switch ($genre) {
+    case 'Homme':
+        echo 'C\'est un homme';
+        break;
+    case 'Femme':
+        echo 'C\'est une femme';
+        break;
+    default:
+        echo 'C\'est un agenre';
+}
+        </code></pre>
+
+        <p class="mt-3">
+            On passe ici ce qui doit est contrôlé en parmètre du <kbd>switch</kbd> et les cas de comparaison dans le <kbd>case</kbd>.
+            Notez la présence du <kbd>break</kbd> qui permettra la sortie du <kbd>switch</kbd> dès qu'un cas est validé.
+            L'élément <kbd>default</kbd> est facultatif, mais il permet de définir le comportement si aucun cas n'est valide.
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Comparaison stricte</h2>
+
+        <p class="mt-3">
+            Nous avons vu deux structures conditionnelles qui semblent similaires, mais une différence fondamentale exite entre les deux !
+            Le <kbd>switch</kbd> fait une comparaison <strong>large</strong> là où le <kbd>if</kbd> peut faire une comparaison <strong>stricte</strong>.
+        </p>
+
+        <p class="mt-3">
+            Souvenez-vous... Il existe des types pour nos variables. La différence entre les comparaisons strictes et la comparaison large, réside dans le fait que la comparaison stricte comparera le type en plus de la valeur (cf.
+            <a href="../3_operateurs/2_comparaison_logiques.html">les comparaisons logiques</a>)
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+if ($nombre === 0) {
+    echo 'Il n\'y en n\'a pas';
+} elseif ($nombre === 1) {
+    echo 'Il est unique';
+} else {
+    echo 'C\'est un groupe';
+}
+
+// Est DIFFERENT de :
+
+switch ($nombre) {
+    case 0:
+        echo 'Il n\'y en n\'a pas';
+        break;
+    case 1:
+        echo 'Il est unique';
+        break;
+    default:
+        echo 'C\'est un groupe';
+}
+        </code></pre>
+
+        <p class="mt-3">
+            En effet si je mets <kbd>'1'</kbd> ou <kbd>1</kbd>, j'aurai le même résultat dans le <kbd>switch</kbd>.
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Exercice</h2>
+
+        <ul>
+            <li>Crées d'autres tableaux décrivants des personnages, avec des valeurs différentes (nom, profession, pv).</li>
+            <li>Avec un switch, affichez une phrase en fonction de la profession.</li>
+            <li>Avec un if/else, déterminez que si les PV sont en dessous de 50 il faut rapidement se soigner, mais s'ils sont à zéro, tout est fini !</li>
+        </ul>
+
+        <p class="mt-3">
+            <a class="btn btn-primary" data-toggle="collapse" href="#correction" role="button" aria-expanded="false" aria-controls="correction">
+                Correction
+            </a>
+        </p>
+
+        <div class="collapse" id="correction">
+            <div class="card card-body">
+                <pre class="line-numbers"><code class="language-php">&lt;?php
+$merlin = [
+    'nom'        => 'Merlin',
+    'profession' => 'Druide',
+    'pv'         => 200
+];
+$arthur = [
+    'nom'        => 'Arthur',
+    'profession' => 'Roi',
+    'pv'         => 400
+];
+$guenievre = [
+    'nom'        => 'Guenièvre',
+    'profession' => 'Reine',
+    'pv'         => 100
+];
+$perceval = [
+    'nom'        => 'Perceval',
+    'profession' => 'Chevalier',
+    'pv'         => 300
+];
+
+switch ($perceval['profession']) {
+    case 'Chevalier':
+        echo 'Sir ! On en a gros! &lt;br&gt;';
+        break;
+    case 'Druide':
+        echo 'Franchement, une potion pour faire pisser bleu, ça presse forcément la minute ? &lt;br&gt;';
+        break;
+    case 'Reine':
+        echo 'Ah d\'accord, vous me prenez vraiment, pour la reine des pécores. &lt;br&gt;';
+        break;
+    case 'Roi':
+        echo 'Rangez moi ça, débile, la Table Ronde, c\'est pas la fête de l\'artisanat ! &lt;br&gt;';
+        break;
+    default:
+        echo 'Où elle est la poulette ? &lt;br&gt;';
+}
+
+if ($perceval['pv'] === 0) {
+    echo 'Vous avez toujours une mine de chiotte mais là... j\'sais pas si c\'est la lumière du feu ou quoi mais on dirait que vous êtes mort. &lt;br&gt;';
+} elseif ($perceval['pv'] <= 50) {
+    echo 'Vous allez me faire le plaisir de faire péter cette saloperie que je puisse faire sortir la machine, hein! &lt;br&gt;';
+} else {
+    echo 'Ce qu\'il y a de bien avec les opinions tranchées, c\'est qu\'ça relance le débat. En somme vous êtes une sorte de provocateur, quoi. &lt;br&gt;';
+}
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <div class="row mt-5 mb-5">
+        <a href="../3_operateurs/3_incrementation.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="2_boucles.html" class="btn btn-outline-primary col-auto">Suivant</a>
+    </div>
+</main>
+
+<script src="../../scripts/prism.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+</html>
