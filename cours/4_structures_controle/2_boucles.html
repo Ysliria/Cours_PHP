@@ -19,13 +19,137 @@
         <h2 class="text-muted">Le while</h2>
 
         <p class="mt-3">
-            
+            La boucle <kbd>while</kbd> est le moyen le plus simple d'implémenter une boucle en PHP.
+        </p>
+
+        <p class="mt-3">
+            On passe en paramètre de la boucle la condition de son exécution.
+            Tant qu'elle est vérifiée, son bloc d'instructions sera exécuté.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$assiettes = 0;
+$convives  = 8;
+
+while($assiettes < $convives) {
+    $assiettes++;
+}
+
+echo $assiettes; // 8
+        </code></pre>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Le do-while</h2>
+
+        <p class="mt-3">
+            La boucle <kbd>do-while</kbd> ressemble beaucoup à la boucle <kbd>while</kbd>, mais la condition d'exécution est testée à la fin de chaque itération plutôt qu'au début.
+        </p>
+
+        <p class="alert alert-warning">
+            Cela signifie que la première itération est toujours executée !
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$assiettes = 0;
+$convives  = 8;
+
+do {
+    $assiettes++;
+} while($assiettes < $convives);
+
+echo $assiettes; // 8
+        </code></pre>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Le for</h2>
+
+        <p class="mt-3">
+            Paradoxalement, les boucles <kbd>for</kbd> sont les boucles les plus complexes en PHP, mais aussi celle qu'on croise le plus.
+        </p>
+
+        <p class="mt-3">
+            On passe en paramètre de la boucle 3 exressions.
+        </p>
+
+        <ul>
+            <li>La première est toujours exécutée au début de l'itération.</li>
+            <li>La seconde est évaluée à chaque itération et, si elle n'est plus vérifiée, met fin à l'exécution de la boucle.</li>
+            <li>La troisième expression est exécutée à la fin de chaque itération.</li>
+        </ul>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$assiettes = 0;
+$convives = 8;
+
+for ($i = 0; $i < $convives; $i++) {
+    $assiettes++;
+}
+
+echo $assiettes;
+        </code></pre>
+
+        <p class="mt-3">
+            Auter exemple avec un tableau :
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$legendes = [
+    'merlin',
+    'arthur',
+    'guenievre',
+    'perceval'
+];
+
+for($i = 0, $length = count($legendes); $i < $length; $i++) {
+    echo $legendes[$i] . '&lt;br&gt;';
+}
+        </code></pre>
+
+        <p class="alert alert-info">
+            Pourquoi affecter la longueur du tableau à une variable et ne pas l'évaluer dans la seconde expression ? Cela fonctionne aussi ...
         </p>
     </section>
 
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Le foreach</h2>
+
+        <p class="mt-3">
+            Pour les tableaux, il est plus simple d'utiliser un <kbd>foreach</kbd> qui est conçu pour cela !
+        </p>
+
+        <p class="mt-3">
+            On lui fournit en paramètres le tableau et une variable pour récupérer sa clef et sa valeur.
+            On peut ne récupérer que la valeur si la clef n'est pas nécessaire.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$legendes = [
+    'merlin',
+    'arthur',
+    'guenievre',
+    'perceval'
+];
+
+foreach($legendes as $key => $value) {
+    echo 'le numéro ' . $key . ' est : ' . $value . '<br>';
+}
+// le numéro 0 est : merlin
+        </code></pre>
+    </section>
+
+    <!--@todo : mettre exercice faire une boucle qui enleve de la vie a un personnage tant que ses PV sont supérieurs à 0-->
+
     <div class="row mt-5 mb-5">
-        <a href="#" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
-        <a href="#" class="btn btn-outline-primary col-auto">Suivant</a>
+        <a href="1_structures_conditionelles.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="../5_fonctions/1_fonctions_personnelles.html" class="btn btn-outline-primary col-auto">Suivant</a>
     </div>
 </main>
 
