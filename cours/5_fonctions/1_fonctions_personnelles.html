@@ -27,7 +27,8 @@
 /**
  * Fonction qui affiche bonjour tout le monde
  */
-function disBonjour() {
+function disBonjour()
+{
     echo 'Bonjour tout le monde !';
 }
 
@@ -54,11 +55,52 @@ $formateur = [
 /**
  * Fonction qui affiche bonjour à quelqu'un de nommé
  */
-function disBonjour($nom) {
+function disBonjour($nom)
+{
     echo 'Bonjour' . $nom . ' !';
 }
 
 disBonjour($formateur['nom']);
+        </code></pre>
+
+        <p class="mt-3">
+            Comme je le disais juste avant, les paramètres peuvent être facultatifs.
+            Par exemple, quand vous êtes au restaurant, si vous ne prenez pas de boissons avec votre repas, vous aurez une carafe d'eau.
+            La boisson est un paramètre facultatif, sa valeur par défaut est la carafe d'eau.
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+function commanderRepas($plat, $boisson = 'carafe')
+{
+    echo 'Vous avez commandé ' . $plat . ' et en boisson ' . $boisson;
+}
+        </code></pre>
+
+        <p class="mt-3 alert alert-warning">
+            Pensez à bien mettre les paramètres optionnels après les paramètres obligatoires !
+        </p>
+
+        <p class="mt-3">
+            Pour reprendre l'exemple de la function <kbd>disBonjour()</kbd> :
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$formateur = [
+    'nom'      => 'AUGER',
+    'prenom'   => 'Mickaël',
+    'referent' => true
+];
+
+/**
+ * Fonction qui affiche bonjour à quelqu'un de nommé
+ */
+function disBonjour($nom = 'tout le monde')
+{
+    echo 'Bonjour' . $nom . ' !';
+}
+
+disBonjour($formateur['prenom']); // Bonjour Mickaël !
+disBonjour(); // Bonjour tout le monde !
         </code></pre>
     </section>
 
@@ -82,23 +124,73 @@ $formateur = [
     'referent' => true
 ];
 
+ /**
+ * Fonction qui affiche bonjour à quelqu'un de nommé
+ *
+ * @param string $nom
+ * @return void
+ */
+function disBonjour($nom)
+{
+    echo 'Bonjour' . $nom . ' !';
+}
+
 /**
  * Fonction qui retourne si le formateur passé en paramètre est référent
  *
- * @param array $foramteur
+ * @param array $formateur
  * @return bool
  */
-function isReferent($formateur) {
+function isReferent($formateur)
+{
     return $formateur['referent'];
 }
 
+disBonjour($formateur['prenom']);
+isReferent($formateur);
+        </code></pre>
+
+        <p class="mt-3">
+            Avec du typage en prime !
+        </p>
+
+        <pre class="line-numbers"><code class="language-php">&lt;?php
+$formateur = [
+    'nom'      => 'AUGER',
+    'prenom'   => 'Mickaël',
+    'referent' => true
+];
+
+ /**
+ * Fonction qui affiche bonjour à quelqu'un de nommé
+ *
+ * @param string $nom
+ * @return void
+ */
+function disBonjour(string $nom): void
+{
+    echo 'Bonjour' . $nom . ' !';
+}
+
+/**
+ * Fonction qui retourne si le formateur passé en paramètre est référent
+ *
+ * @param array $formateur
+ * @return bool
+ */
+function isReferent(array $formateur): bool
+{
+    return $formateur['referent'];
+}
+
+disBonjour($formateur['prenom']);
 isReferent($formateur);
         </code></pre>
     </section>
 
     <div class="row mt-5 mb-5">
         <a href="../4_structures_controle/2_boucles.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
-        <a href="2_fonctions_tableaux.html" class="btn btn-outline-primary col-auto">Suivant</a>
+        <a href="2_fonctions_internes.html" class="btn btn-outline-primary col-auto">Suivant</a>
     </div>
 </main>
 
