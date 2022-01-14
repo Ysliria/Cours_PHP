@@ -18,12 +18,97 @@
     <!-- @todo : généralités (phpinfo, is_int, etc ...), tableaux, string -->
 
     <section class="mt-5">
-        <h2 class="text-muted"></h2>
+        <h2 class="text-muted">Génératilité</h2>
+
+        <p class="mt-3">
+            Si PHP nous permmet de définir nos propres fonctions, il dispose aussi de fonctions internes.
+            En effet, il serait dommage de devoir développer des fonctions récurrentes à chaque nouveau projet.
+        </p>
+
+        <p class="mt-3">
+            Parmi ces fonctions, il y en a qu'on utilise depuis le début du cours :
+        </p>
+
+        <ul>
+            <li><kbd>echo</kbd> qui peut aussi s'écrire <kbd>echo(...$string)</kbd></li>
+            <li><kbd>var_dump($variable)</kbd></li>
+            <li><kbd>die</kbd> qu'on peut aussi écrire <kbd>die($status)</kbd></li>
+        </ul>
+
+        <p class="mt-3">
+            Et il en existe plein d'autre comme <kbd>php_info()</kbd> qui vous donnera les informations sur la configuration de PHP.
+            On ne peut pas toutes les lister ; aussi, je vous conseille de chercher et de lire attentivement la documentation des fonctions que vous utiliserez au gré de vos besoins.
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Les fonctions pour les tableaux</h2>
+
+        <p class="mt-3">
+            Faisons un focus sur les tableaux qui possèdent beaucoup de fonctions, comme on peut le voir <a
+                href="https://www.php.net/manual/fr/ref.array.php">ici</a>.
+        </p>
+
+        <p class="mt-3">
+        résumé
+            var_dump : affiche l'ensemble des éléments et leurs types
+            print_r : idem mais en plus concis avec un transtypage des valeurs vers des string (comme avec echo, les valeurs false ou null ne seront pas affichées). Plus d'infos ici
+            count : Compte tous les éléments d'un tableau
+            array_keys : Retourne toutes les clés ou un ensemble des clés d'un tableau
+            array_values : Retourne toutes les valeurs d'un tableau
+            array_sum : Calcule la somme des valeurs du tableau
+        modification
+            array['x'] = toto
+            unset(array) / unset array['x']
+        controle
+            in_array : Indique si une valeur appartient à un tableau
+            key_exists (alias de array_key_exists) : vérifie si une clé existe dans un tableau
+            isset : exemple isset($array['key']), notez que la clé key doit exister et la valeur doit être non nulle pour que isset renvoie true
+                $arr = array();
+                isset($arr); //true : $arr est déclaré et non NULL
+                empty($arr); //true : le tableau est bien vide
+                is_null($arr); //false : un tableau vide n'est pas équivalent à une valeur NULL
+        ajout/suppression
+            array_unshift : ajoute (empile) un élément en début de tableau
+            array_shift : enlève (dépile) le 1e élément d'un tableau
+            array_push : ajoute (empile) un/des éléments en fin de tableau
+            $arr[] = $val : ajoute $val en fin de tableau
+            array_pop : enlève (dépile) le dernier élément d'un tableau
+        recherche
+            array_slice (ne pas confondre avec array_splice) : Extrait une portion de tableau
+            array_search : Recherche dans un tableau la clé associée à la première valeur
+            array_filter : Filtre les éléments d'un tableau grâce à une fonction de rappel
+        tri
+            Les fonctions de tri sont résumées sur cette page. La fonction de base sort tri de la façon suivante :
+            https://www.php.net/manual/fr/array.sorting.php
+            selon les valeurs (et non les clés)
+            sans conserver le lien entre clés et valeurs
+            par ordre croissant
+            La majorité des autres fonctions sont des versions modifiées de sort :
+
+            asort : similaire à sort mais en conservant l'association (a) entre clés et valeurs
+            ksort : similaire à sort mais en triant selon les clés (k), dans ce cas l'association clé-valeur est également conservée
+            rsort : similaire à sort mais par ordre décroissant (reverse : r)
+            usort : similaire à sort l'ordre est défini par une fonction utilisateur (u)
+            On peut combiner les préfixes k, a, r ou u. Ainsi arsort tri :
+                selon les valeurs
+                avec conservation du lien entre clés et valeurs (a)
+                par ordre décroissant (r)
+        </p>
+    </section>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Les fonctions pour les chaines de caractères</h2>
 
         <p class="mt-3">
 
         </p>
     </section>
+
 
     <div class="row mt-5 mb-5">
         <a href="1_fonctions_personnelles.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
