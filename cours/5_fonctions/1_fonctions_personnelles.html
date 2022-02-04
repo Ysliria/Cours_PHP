@@ -195,7 +195,7 @@ isReferent($formateur);
         <h2 class="text-muted">Exercice</h2>
 
         <ul>
-            <li>Créer une fonction qui prend en paramètre un attaquant et une cible et lui enlève des point de vie en fonction de l'attaque.</li>
+            <li>Créer une fonction qui prend en paramètre un attaquant et une cible et lui enlève des points de vie en fonction de l'attaque.</li>
             <li>Cette fonction retournera les points de vie restant de la cible.</li>
             <li>Créez une autre fonction qui retourne un message en fonction des points de vie d'un personnage.</li>
             <li>Assurez-vous de bien choisir le typage des paramètres et du retour.</li>
@@ -278,10 +278,10 @@ $perceval = [
     'atk'        => 40
 ];
 $mordred = [
-    'nom' => 'Mordred',
+    'nom'        => 'Mordred',
     'profession' => 'Chevalier',
-    'pv' => 400,
-    'atk' => 40
+    'pv'         => 400,
+    'atk'        => 40
 ];
 
 function attaquer(array $attaquant, array &$cible): int
@@ -308,7 +308,6 @@ messagePv($mordred['pv']);
 
 messagePv(attaquer($perceval, $mordred)); // Pour afficher directement le message en fonction des PV.
                 </code></pre>
-
             </div>
         </div>
     </section>

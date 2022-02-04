@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <title>PHP - Fonctions - Fonctions sur les tableaux</title>
+</head>
+
+<body>
+<main class="container">
+    <h1 class="display-1">Les fonctions sur les tableaux</h1>
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted"></h2>
+
+        <p class="mt-3">
+            résumé
+            var_dump : affiche l'ensemble des éléments et leurs types
+            print_r : idem mais en plus concis avec un transtypage des valeurs vers des string (comme avec echo, les valeurs false ou null ne seront pas affichées). Plus d'infos ici
+            count : Compte tous les éléments d'un tableau
+            array_keys : Retourne toutes les clés ou un ensemble des clés d'un tableau
+            array_values : Retourne toutes les valeurs d'un tableau
+            array_sum : Calcule la somme des valeurs du tableau
+            modification
+            array['x'] = toto
+            unset(array) / unset array['x']
+            controle
+            in_array : Indique si une valeur appartient à un tableau
+            key_exists (alias de array_key_exists) : vérifie si une clé existe dans un tableau
+            isset : exemple isset($array['key']), notez que la clé key doit exister et la valeur doit être non nulle pour que isset renvoie true
+            $arr = array();
+            isset($arr); //true : $arr est déclaré et non NULL
+            empty($arr); //true : le tableau est bien vide
+            is_null($arr); //false : un tableau vide n'est pas équivalent à une valeur NULL
+            ajout/suppression
+            array_unshift : ajoute (empile) un élément en début de tableau
+            array_shift : enlève (dépile) le 1e élément d'un tableau
+            array_push : ajoute (empile) un/des éléments en fin de tableau
+            $arr[] = $val : ajoute $val en fin de tableau
+            array_pop : enlève (dépile) le dernier élément d'un tableau
+            recherche
+            array_slice (ne pas confondre avec array_splice) : Extrait une portion de tableau
+            array_search : Recherche dans un tableau la clé associée à la première valeur
+            array_filter : Filtre les éléments d'un tableau grâce à une fonction de rappel
+            tri
+            Les fonctions de tri sont résumées sur cette page. La fonction de base sort tri de la façon suivante :
+            https://www.php.net/manual/fr/array.sorting.php
+            selon les valeurs (et non les clés)
+            sans conserver le lien entre clés et valeurs
+            par ordre croissant
+            La majorité des autres fonctions sont des versions modifiées de sort :
+
+            asort : similaire à sort mais en conservant l'association (a) entre clés et valeurs
+            ksort : similaire à sort mais en triant selon les clés (k), dans ce cas l'association clé-valeur est également conservée
+            rsort : similaire à sort mais par ordre décroissant (reverse : r)
+            usort : similaire à sort l'ordre est défini par une fonction utilisateur (u)
+            On peut combiner les préfixes k, a, r ou u. Ainsi arsort tri :
+            selon les valeurs
+            avec conservation du lien entre clés et valeurs (a)
+            par ordre décroissant (r)
+        </p>
+    </section>
+
+    <div class="row mt-5 mb-5">
+        <a href="2_fonctions_internes.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
+        <a href="#" class="btn btn-outline-primary col-auto">Suivant</a>
+    </div>
+</main>
+
+<script src="../../scripts/prism.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+</body>
+</html>

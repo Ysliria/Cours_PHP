@@ -15,10 +15,8 @@
 
     <hr>
 
-    <!-- @todo : généralités (phpinfo, is_int, etc ...), tableaux, string -->
-
     <section class="mt-5">
-        <h2 class="text-muted">Génératilité</h2>
+        <h2 class="text-muted">Généralité</h2>
 
         <p class="mt-3">
             Si PHP nous permmet de définir nos propres fonctions, il dispose aussi de fonctions internes.
@@ -36,83 +34,140 @@
         </ul>
 
         <p class="mt-3">
-            Et il en existe plein d'autre comme <kbd>php_info()</kbd> qui vous donnera les informations sur la configuration de PHP.
-            On ne peut pas toutes les lister ; aussi, je vous conseille de chercher et de lire attentivement la documentation des fonctions que vous utiliserez au gré de vos besoins.
+            Et il en existe plein d'autre comme <kbd>php_info()</kbd> qui vous donnera les informations sur la
+            configuration de PHP.
+            On ne peut pas toutes les lister ; aussi, je vous conseille de chercher et de lire attentivement la
+            documentation des fonctions que vous utiliserez au gré de vos besoins.
         </p>
+    </section>
+
+    <!-- https://www.php.net/manual/fr/funcref.php -->
+
+    <hr>
+
+    <section class="mt-5">
+        <h2 class="text-muted">Les fonctions pour les chaînes de caractères</h2>
+
+        <p class="mt-3">
+            La manipulation de chaînes de caractères fait partie des choses que l'on peut être ammené à faire
+            régulièrement.
+            Aussi, PHP regorge de fonctions spécifiques dédiées à la manipulation de celles-ci.
+        </p>
+
+        <p class="mt-3">
+            Vous trouverez dans la documentation de PHP la liste de ses fonctions : <a
+                href="https://www.php.net/manual/fr/ref.strings.php" target="_blank">Fonctions sur les chaînes de
+            caractères</a>.
+            En voici une liste, non exhaustive, des plus couramment utilisées :
+        </p>
+
+        <ul>
+            <li><strong><a href="https://www.php.net/manual/fr/function.html-entity-decode.php" target="_blank">html_entity_decode</a></strong> : convertit les entités HTML à leurs caractères correspondant</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.htmlentities.php" target="_blank">htmlentities</a></strong> : convertit tous les caractères éligibles en entités HTML</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.htmlspecialchars-decode.php" target="_blank">htmlspecialchars_decode</a></strong> : convertit les entités HTML spéciales en caractères</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.htmlspecialchars.php" target="_blank">htmlspecialchars</a></strong> : convertit les caractères spéciaux en entités HTML</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.ucfirst.php" target="_blank">ucfirst</a></strong> : met le premier caractère en majuscule</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.nl2br.php" target="_blank">nl2br</a></strong> : insère un retour à la ligne HTML à chaque nouvelle ligne</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.number-format.php" target="_blank">number_format</a></strong> : formate un nombre pour l'affichage</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.str-replace.php" target="_blank">str_replace</a></strong> : remplace toutes les occurrences dans une chaîne</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.strlen.php" target="_blank">strlen</a></strong> : calcule la taille d'une chaîne</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.strpos.php" target="_blank">strpos</a></strong> : cherche la position de la première occurrence dans une chaîne</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.strtolower.php" target="_blank">strtolower</a></strong> : renvoie une chaîne en minuscules</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.strtoupper.php" target="_blank">strtoupper</a></strong> : renvoie une chaîne en majuscules</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.strtr.php" target="_blank">strtr</a></strong> : remplace des caractères dans une chaîne</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.substr.php" target="_blank">substr</a></strong> : retourne un segment de chaîne</li>
+            <li><strong><a href="https://www.php.net/manual/fr/function.trim.php" target="_blank">trim</a></strong> : supprime les espaces (ou d'autres caractères) en début et fin de chaîne</li>
+            <li><a href="https://www.php.net/manual/fr/ref.strings.php" target="_blank">... et bien d'autres</a></li>
+        </ul>
     </section>
 
     <hr>
 
     <section class="mt-5">
-        <h2 class="text-muted">Les fonctions pour les tableaux</h2>
+        <h2 class="text-muted">Exercices</h2>
 
+        <ul>
+            <li>Faites en sorte que la variable <kbd>$nom = 'arthur';</kbd> soit écrite en majuscule.</li>
+            <li>Trouvez la position du nom d'Arthu dans la chaine <kbd>$presentation = 'Je suis Arthur Pendragon !';</kbd>.</li>
+            <li>En reprennant ce tableau de personnage <kbd>$personnages = ['Arthur', 'Lancelot', 'Perceval', 'Guenièvre', 'Merlin', 'Mordred'];</kbd>, trouvez celui qui a le nom le plus long.</li>
+            <li>Créer une fonction pour que tous les noms de peronnage soient écrits en minuscule avec la première lettre en majuscule.</li>
+            <li>Compléter la fonction <kbd>attaquer()</kbd> créée dans le chapitre précédent en y ajoutant la phrase : "{{ Nom }} ! En garde, ma biquette ! Je vais vous découper le gras du cul, ça vous fera ça de moins à trimbaler !" où le nom est formaté comme au point précédent</li>
+        </ul>
+        
         <p class="mt-3">
-            Faisons un focus sur les tableaux qui possèdent beaucoup de fonctions, comme on peut le voir <a
-                href="https://www.php.net/manual/fr/ref.array.php">ici</a>.
+            <a class="btn btn-primary" data-toggle="collapse" href="#correction" role="button" aria-expanded="false" aria-controls="correction">
+                Correction
+            </a>
         </p>
+        
+        <div class="collapse" id="correction">
+            <div class="card card-body">
+                <pre class="line-numbers"><code class="language-php">&lt;?php
+/* Correction 1 */
+$nom = 'arthur';
+echo ucfirst($nom);// Arthur
 
-        <p class="mt-3">
-        résumé
-            var_dump : affiche l'ensemble des éléments et leurs types
-            print_r : idem mais en plus concis avec un transtypage des valeurs vers des string (comme avec echo, les valeurs false ou null ne seront pas affichées). Plus d'infos ici
-            count : Compte tous les éléments d'un tableau
-            array_keys : Retourne toutes les clés ou un ensemble des clés d'un tableau
-            array_values : Retourne toutes les valeurs d'un tableau
-            array_sum : Calcule la somme des valeurs du tableau
-        modification
-            array['x'] = toto
-            unset(array) / unset array['x']
-        controle
-            in_array : Indique si une valeur appartient à un tableau
-            key_exists (alias de array_key_exists) : vérifie si une clé existe dans un tableau
-            isset : exemple isset($array['key']), notez que la clé key doit exister et la valeur doit être non nulle pour que isset renvoie true
-                $arr = array();
-                isset($arr); //true : $arr est déclaré et non NULL
-                empty($arr); //true : le tableau est bien vide
-                is_null($arr); //false : un tableau vide n'est pas équivalent à une valeur NULL
-        ajout/suppression
-            array_unshift : ajoute (empile) un élément en début de tableau
-            array_shift : enlève (dépile) le 1e élément d'un tableau
-            array_push : ajoute (empile) un/des éléments en fin de tableau
-            $arr[] = $val : ajoute $val en fin de tableau
-            array_pop : enlève (dépile) le dernier élément d'un tableau
-        recherche
-            array_slice (ne pas confondre avec array_splice) : Extrait une portion de tableau
-            array_search : Recherche dans un tableau la clé associée à la première valeur
-            array_filter : Filtre les éléments d'un tableau grâce à une fonction de rappel
-        tri
-            Les fonctions de tri sont résumées sur cette page. La fonction de base sort tri de la façon suivante :
-            https://www.php.net/manual/fr/array.sorting.php
-            selon les valeurs (et non les clés)
-            sans conserver le lien entre clés et valeurs
-            par ordre croissant
-            La majorité des autres fonctions sont des versions modifiées de sort :
+/* Correction 2 */
+$presentation = 'Je suis Arthur Pendragon !';
+echo strpos($presentation, 'Arthur'); // 8
 
-            asort : similaire à sort mais en conservant l'association (a) entre clés et valeurs
-            ksort : similaire à sort mais en triant selon les clés (k), dans ce cas l'association clé-valeur est également conservée
-            rsort : similaire à sort mais par ordre décroissant (reverse : r)
-            usort : similaire à sort l'ordre est défini par une fonction utilisateur (u)
-            On peut combiner les préfixes k, a, r ou u. Ainsi arsort tri :
-                selon les valeurs
-                avec conservation du lien entre clés et valeurs (a)
-                par ordre décroissant (r)
-        </p>
+/* Correction 3 */
+$personnages = ['Arthur', 'Lancelot', 'Perceval', 'Guenièvre', 'Merlin', 'Mordred'];
+$nomPlusLong = '';
+
+foreach($personnages  as $personnage) {
+    if (strlen($personnage) > strlen($nomPlusLong)) {
+        $nomPlusLong = $personnage;
+    }
+}
+
+    // Equivaut à
+foreach($personnages  as $personnage) {
+    $nomPlusLong = strlen($personnage) > strlen($nomPlusLong) ? $personnage : $nomPlusLong;
+}
+    // Attention l'opérateur Elvis ne peut pas fonctionner ici " L'expression expr1 ?: expr3 retourne expr1 si expr1 vaut true, et expr3 sinon."
+
+echo $nomPlusLong;
+
+/* Correction 4 */
+function formaterNom(string $nom): string
+{
+    return ucfirst(strtolower($nom));
+}
+
+echo formaterNom('ARTHUR'); // Arthur
+
+/* Correction 5 */
+$perceval = [
+    'nom'        => 'Perceval',
+    'profession' => 'Chevalier',
+    'pv'         => 300,
+    'atk'        => 40
+];
+$mordred = [
+    'nom'        => 'Mordred',
+    'profession' => 'Chevalier',
+    'pv'         => 400,
+    'atk'        => 40
+];
+
+function attaquer(array $attaquant, array &$cible): int
+{
+    echo formaterNom($cible['nom']) . ' ! En garde, ma biquette ! Je vais vous découper le gras du cul, ça vous fera ça de moins à trimbaler !';
+
+    return $cible['pv'] -= $attaquant['atk'];
+}
+
+attaquer($perceval, $mordred);
+var_dump($mordred);
+                </code></pre>
+            </div>
+        </div>
     </section>
-
-    <hr>
-
-    <section class="mt-5">
-        <h2 class="text-muted">Les fonctions pour les chaines de caractères</h2>
-
-        <p class="mt-3">
-
-        </p>
-    </section>
-
 
     <div class="row mt-5 mb-5">
         <a href="1_fonctions_personnelles.html" class="btn btn-outline-secondary col-auto mr-auto">Précédent</a>
-        <a href="#" class="btn btn-outline-primary col-auto">Suivant</a>
+        <a href="3_fonctions_tableaux.html" class="btn btn-outline-primary col-auto">Suivant</a>
     </div>
 </main>
 
